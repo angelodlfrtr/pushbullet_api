@@ -4,12 +4,11 @@ module PushbulletApi
   module Files
     class Uploader
 
-      attr_reader :url
+      attr_reader :url, :file_name, :content_type
 
       class << self
         def create(file)
-          ins = new(file)
-          ins.url
+          new(file)
         end
       end
 
@@ -26,7 +25,7 @@ module PushbulletApi
         upload_request = PushbulletApi::Files::UploadRequest.create(basename, content_type)
         upload         = PushbulletApi::Files::Upload.create(file, upload_request)
 
-        @url = upload.url
+        @url, @file_name, @content_type = upload.url, basename, content_type
       end
     end
   end

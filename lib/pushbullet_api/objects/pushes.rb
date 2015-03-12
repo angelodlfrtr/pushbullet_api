@@ -13,8 +13,7 @@ module PushbulletApi
         end
 
         def file args = {}
-          # todo
-          nil
+          create(args.merge({type: :file}))
         end
       end
 
@@ -22,9 +21,26 @@ module PushbulletApi
         PushbulletApi::Objects::Response.new(new(args))
       end
 
+      def update iden, args = {}
+        # todo
+      end
+
       def initialize args
         self.verb   = :post
         self.action = :pushes
+
+        # File work
+        if args.has_key?(:file)
+          file = args.delete(:file)
+          uploader = PushbulletApi::Files::Uploader.create(file)
+
+          args = args.merge({
+            :file_name => uploader.file_name,
+            :file_type => uploader.content_type,
+            :file_url  => uploader.url
+          })
+        end
+
         self.body   = args
 
         @response   = send
