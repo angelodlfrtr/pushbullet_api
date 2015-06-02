@@ -31,7 +31,9 @@ module PushbulletApi
 
         # File work
         if args.has_key?(:file)
-          file = args.delete(:file)
+
+          file     = args.delete(:file)
+
           uploader = PushbulletApi::Files::Uploader.create(file)
 
           args = args.merge({

@@ -14,7 +14,7 @@ module PushbulletApi
 
       def initialize file
 
-        content_type = ''
+        content_type = 'text/plain'
         basename     = File.basename(file.path)
         types        = MIME::Types.of(basename)
 

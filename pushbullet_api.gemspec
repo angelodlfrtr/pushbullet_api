@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["angelo.delefortrie@gmail.com"]
   spec.summary       = "Pushbullter rest api ruby wrapper"
   spec.description   = spec.summary
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/angelodlfrtr/pushbullet_api"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

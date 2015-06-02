@@ -13,6 +13,7 @@ module PushbulletApi
         check_verb
 
         prms = nil
+
         if self.params
           prms = self.params
         else
